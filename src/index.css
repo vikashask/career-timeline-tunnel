@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+/* ───── Base Reset ───── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #020408;
+  color: #ffffff;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ───── Scrollbar Hide ───── */
+::-webkit-scrollbar { display: none; }
+body { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ───── Selection ───── */
+::selection {
+  background: rgba(10, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+/* ───── Animations ───── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(10, 255, 255, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(10, 255, 255, 0.25); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.45s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.45s ease-out;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}

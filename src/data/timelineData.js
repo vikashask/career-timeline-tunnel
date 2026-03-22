@@ -1,0 +1,200 @@
+// Career timeline data sourced from Vikash Kumar Verma's resume
+// Full Stack Architect | 13+ years | Hyderabad, India
+
+export const PROFILE = {
+  name: 'Vikash Kumar Verma',
+  title: 'Full Stack Architect',
+  experience: '13+ Years',
+  email: 'vikashraj144@gmail.com',
+  location: 'Hyderabad, Telangana',
+  linkedin: 'linkedin.com/in/vikash-verma-0518162b',
+  summary:
+    'Full Stack Architect with 13+ years of specialized experience in modern web development and distributed architecture. Proven track record in building large-scale, enterprise-level SaaS and B2C applications. Skilled in architecting low-latency, scalable systems from scratch.',
+  skills: {
+    frontend: ['React.js', 'Angular', 'TypeScript', 'JavaScript (ES6+)', 'Redux', 'Zustand', 'Tailwind CSS'],
+    backend: ['Node.js', 'Express.js', 'Python (Django, FastAPI)', 'Java Spring Boot', 'GraphQL', 'RESTful APIs'],
+    databases: ['PostgreSQL', 'MySQL', 'MongoDB', 'Couchbase', 'Redis', 'ElasticSearch'],
+    devops: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'CI/CD (Jenkins, GitHub Actions)', 'Nginx'],
+    tools: ['Git', 'JIRA', 'Webpack', 'Vite', 'Jest', 'Cypress'],
+  },
+  awards: ['"Engineering Excellence" Award at M3BI, PepsiCo, and A1 Technology'],
+  certifications: [
+    'IIT Kanpur — AIML Generative AI & Machine Learning',
+    'Certification in Product Management | ISB',
+    'AWS Solutions Architect Associate | Udemy',
+    'Advanced React Component Patterns | Udemy',
+  ],
+};
+
+export const timelineData = [
+  {
+    year: 2013,
+    period: 'Jan 2013 – Nov 2013',
+    company: 'Aryaan Solutions',
+    location: 'Bangalore',
+    role: 'Associate Software Engineer',
+    zPosition: -8,
+    color: '#00d4aa',
+    icon: '🌱',
+    tech: ['Drupal', 'WordPress', 'Core PHP', 'HTML', 'CSS', 'JavaScript'],
+    problem: 'First professional role — learning enterprise web development from the ground up',
+    decision:
+      'Mastered Drupal, WordPress, and Core PHP to deliver client-facing websites and web applications',
+    outcome:
+      'Successfully delivered multiple web projects, establishing strong fundamentals across full-stack web development',
+    why: 'Invested deeply in core web technologies to build a lasting foundation — the right start shapes the entire career trajectory',
+    highlights: [
+      'Web development in Drupal, WordPress, and Core PHP',
+      'Laid the technical foundation for a 13+ year career in full-stack development',
+    ],
+  },
+  {
+    year: 2014,
+    period: 'Jan 2014 – Mar 2016',
+    company: 'A1 Technology',
+    location: 'Mohali',
+    role: 'Senior Software Engineer',
+    zPosition: -24,
+    color: '#7c3aed',
+    icon: '⚙️',
+    tech: ['JavaScript', 'PHP', 'OAuth 2.0', 'Stripe', 'PayPal', 'Backend Caching'],
+    problem:
+      'Web applications serving 100K+ monthly active users were facing performance bottlenecks and slow payment gateway integrations',
+    decision:
+      'Optimized apps via backend caching and frontend rendering improvements; integrated secure OAuth 2.0 token-based APIs for Stripe and PayPal payment gateways',
+    outcome:
+      'Significantly improved application performance for 100K+ MAU; delivered seamless, secure payment integrations that increased transaction reliability',
+    why: 'Performance at scale requires both backend optimization and secure, standards-based API integration — addressed both simultaneously for maximum impact',
+    highlights: [
+      'Optimized apps for 100K+ monthly active users',
+      'Integrated OAuth 2.0 APIs for Stripe & PayPal payment gateways',
+      '"Engineering Excellence" Award recipient',
+    ],
+  },
+  {
+    year: 2016,
+    period: 'Mar 2016 – Aug 2017',
+    company: 'Technotronics → Bridging Healthcare',
+    location: 'Hyderabad / Mohali',
+    role: 'Senior SE → Full Stack Engineer',
+    zPosition: -40,
+    color: '#0ea5e9',
+    icon: '🏥',
+    tech: ['Node.js', 'Angular', 'JWT', 'HIPAA', 'Stripe', 'PHP', 'JavaScript', 'AJAX'],
+    problem:
+      'Healthcare platforms required HIPAA compliance, secure authentication, and robust payment processing — regulatory failure would be catastrophic',
+    decision:
+      'Implemented JWT authentication, encrypted storage, and HIPAA-compliant data handling; integrated Stripe for payment processing on Practina and Denefits platforms',
+    outcome:
+      'Delivered fully secure, compliant healthcare platforms (Practina & Denefits) with working payment flows — zero compliance violations',
+    why: 'Security-first design is non-negotiable for sensitive patient data; chose JWT + encryption over simpler session-based auth to meet HIPAA requirements precisely',
+    highlights: [
+      'Built HIPAA-compliant Node.js & Angular healthcare applications',
+      'Delivered Practina and Denefits platforms with Stripe payment integration',
+      'Interactive PHP/JavaScript apps with AJAX-driven UIs at Technotronics',
+    ],
+  },
+  {
+    year: 2018,
+    period: 'Apr 2018 – Oct 2019',
+    company: 'M3BI India Pvt Ltd',
+    location: 'Hyderabad',
+    role: 'Senior Software Engineer',
+    zPosition: -56,
+    color: '#f59e0b',
+    icon: '📈',
+    tech: ['React.js', 'Angular.js', 'Node.js', 'MongoDB', 'Nginx', 'Microservices'],
+    problem:
+      'Financial web portals for Ameriprise Financial and Marsh Insurance serving 500K+ monthly active users with slow API response times and poor scalability',
+    decision:
+      'Developed responsive React.js and Angular.js frontends; built scalable Node.js microservices with MongoDB and NGINX load balancing',
+    outcome:
+      'Reduced API response times by 35%; served 500K+ MAU reliably; delivered CSI, Client Login, and Marsh web portals with enterprise-grade performance',
+    why: 'Microservices with load balancing was the right architectural choice — individual service scaling and NGINX distribution solved both performance and reliability simultaneously',
+    highlights: [
+      '500K+ monthly active users served',
+      '35% reduction in API response times',
+      '"Engineering Excellence" Award recipient',
+      'Key projects: Ameriprise Financial CSI, Client Login, Marsh web portal',
+    ],
+  },
+  {
+    year: 2019,
+    period: 'Nov 2019 – 2022',
+    company: 'PepsiCo',
+    location: 'Hyderabad',
+    role: 'Full Stack Architect',
+    zPosition: -72,
+    color: '#ef4444',
+    icon: '🚀',
+    tech: ['React.js', 'TypeScript', 'Node.js', 'Docker', 'Kubernetes', 'Java Spring Boot', 'MySQL', 'Couchbase', 'MongoDB', 'AWS'],
+    problem:
+      'Enterprise-grade applications needed to scale for millions of global users across multiple markets (China, Australia, Canada, LATAM) with zero tolerance for downtime',
+    decision:
+      'Architected and deployed microservices using Node.js, Docker, and Kubernetes; built loyalty platforms (KAZ, PTR, Mexico) with Java Spring Boot + Couchbase; led 8-member Agile team with CI/CD via GitHub Actions',
+    outcome:
+      'Improved scalability by 60%, reduced downtime by 30%, achieved 100% on-time releases, 80%+ code coverage; delivered HOP, SmartAdd, DOP, Snacks.com, and LATAM WhatsApp integration',
+    why: 'Chose distributed microservices over monolith architecture to handle global scale and fault isolation — Kubernetes enabled zero-downtime deployments at PepsiCo scale',
+    highlights: [
+      '60% scalability improvement, 30% downtime reduction',
+      'Led 8-member cross-functional Agile team',
+      '80%+ code coverage, 25% reduction in production defects',
+      'Projects: HOP, SmartAdd, DOP (China/Australia/Canada), Snacks.com, LATAM',
+      'Loyalty platforms: KAZ, PTR, Mexico — millions of users',
+      '"Engineering Excellence" Award recipient',
+    ],
+  },
+  {
+    year: 2023,
+    period: '2023 – 2024',
+    company: 'PepsiCo',
+    location: 'Hyderabad',
+    role: 'Full Stack Architect — AI Integration',
+    zPosition: -88,
+    color: '#8b5cf6',
+    icon: '🤖',
+    tech: ['GitHub Copilot', 'Windsurf AI', 'React 18', 'Vite', 'Zustand', 'React Query', 'Okta SSO', 'Azure MSAL', 'Python', 'FastAPI'],
+    problem:
+      'Feature delivery velocity was constrained by manual boilerplate coding and fragmented development workflows; enterprise teams needed AI-augmented SDLC',
+    decision:
+      'Integrated GitHub Copilot and Windsurf into the engineering pipeline; designed Askada — an AI-powered knowledge assistant using React 18 + Vite + Zustand with Okta SSO and SharePoint integration; designed modular atomic component systems with TypeScript',
+    outcome:
+      'Accelerated feature delivery by 70%; reduced development time by 40% via modular atomic components; Askada enabled governed enterprise AI search across SharePoint',
+    why: 'AI tools eliminate repetitive coding so engineers focus on architecture and problem-solving — adopting early creates compounding productivity advantages across the entire team',
+    highlights: [
+      '70% faster feature delivery with AI-augmented SDLC',
+      '40% reduction in development time via atomic design',
+      'Built Askada: AI-powered enterprise knowledge assistant',
+      'IIT Kanpur AIML & Generative AI certification',
+      'ISB Product Management certification',
+    ],
+  },
+  {
+    year: 'Present',
+    period: '2025 – Present',
+    company: 'PepsiCo',
+    location: 'Hyderabad',
+    role: 'Full Stack Architect & Engineering Leader',
+    zPosition: -104,
+    color: '#10b981',
+    icon: '🏆',
+    tech: ['React.js', 'Node.js', 'TypeScript', 'AWS', 'Kubernetes', 'Docker', 'Python', 'Java Spring Boot', 'GraphQL', 'ElasticSearch'],
+    problem:
+      'Sustaining innovation and engineering excellence at enterprise scale while simultaneously growing a world-class team and defining the long-term technology roadmap',
+    decision:
+      'Driving end-to-end architecture ownership — from system design and tech stack decisions to team mentoring (8+ members), hiring, performance management, and roadmap execution across global PepsiCo markets',
+    outcome:
+      '13+ years of compounding expertise converging into architectural leadership — delivering enterprise systems that serve millions, with Engineering Excellence awards across 3 companies',
+    why: 'Great engineers write great code; great architects build great teams. The highest leverage is establishing systems, culture, and patterns that outlast any single individual contribution',
+    highlights: [
+      '13+ years of full-stack mastery across 6 companies',
+      '3× Engineering Excellence Award winner',
+      'Millions of users served across PepsiCo global markets',
+      'Mentoring Junior → Senior → Lead engineers',
+      'IIT Kanpur AIML | ISB Product Management certified',
+    ],
+  },
+];
+
+export const TUNNEL_LENGTH = 125;
+export const TUNNEL_RADIUS = 4;
