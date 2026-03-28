@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 import { TUNNEL_LENGTH, TUNNEL_RADIUS } from '../data/timelineData';
 
-const PARTICLE_COUNT = 800;
+const PARTICLE_COUNT = 1200;
 
 export default function Particles() {
   const meshRef = useRef();
@@ -13,19 +13,22 @@ export default function Particles() {
     const col = new Float32Array(PARTICLE_COUNT * 3);
     const sz = new Float32Array(PARTICLE_COUNT);
 
+    // Cosmic stardust palette
     const palette = [
-      new THREE.Color('#0affff'),
-      new THREE.Color('#ff00ff'),
-      new THREE.Color('#00ff88'),
-      new THREE.Color('#ffcc00'),
-      new THREE.Color('#ff3366'),
-      new THREE.Color('#9933ff'),
+      new THREE.Color('#e0c3fc'), // Soft lavender
+      new THREE.Color('#8ec5fc'), // Soft blue
+      new THREE.Color('#ffd6a5'), // Warm gold
+      new THREE.Color('#c4b5fd'), // Violet
+      new THREE.Color('#a5f3fc'), // Cyan
+      new THREE.Color('#fca5a5'), // Soft red
+      new THREE.Color('#d4fc79'), // Lime glow
+      new THREE.Color('#ffffff'), // Pure white
     ];
 
     for (let i = 0; i < PARTICLE_COUNT; i++) {
       // Scatter in a cylinder
       const angle = Math.random() * Math.PI * 2;
-      const radius = 0.5 + Math.random() * (TUNNEL_RADIUS - 1);
+      const radius = 0.3 + Math.random() * (TUNNEL_RADIUS - 0.8);
       pos[i * 3] = Math.cos(angle) * radius;
       pos[i * 3 + 1] = Math.sin(angle) * radius;
       pos[i * 3 + 2] = -Math.random() * TUNNEL_LENGTH;
@@ -35,7 +38,7 @@ export default function Particles() {
       col[i * 3 + 1] = color.g;
       col[i * 3 + 2] = color.b;
 
-      sz[i] = 0.02 + Math.random() * 0.04;
+      sz[i] = 0.015 + Math.random() * 0.04;
     }
 
     return { positions: pos, colors: col, sizes: sz };
@@ -48,9 +51,10 @@ export default function Particles() {
     const t = state.clock.getElapsedTime();
 
     for (let i = 0; i < PARTICLE_COUNT; i++) {
-      // Subtle float animation
-      posArr[i * 3] += Math.sin(t + i * 0.1) * 0.001;
-      posArr[i * 3 + 1] += Math.cos(t + i * 0.15) * 0.001;
+      // Zero-gravity float animation
+      posArr[i * 3] += Math.sin(t * 0.5 + i * 0.08) * 0.0008;
+      posArr[i * 3 + 1] += Math.cos(t * 0.4 + i * 0.12) * 0.0008;
+      posArr[i * 3 + 2] += Math.sin(t * 0.3 + i * 0.05) * 0.0003;
     }
     geo.attributes.position.needsUpdate = true;
   });
@@ -72,10 +76,10 @@ export default function Particles() {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.06}
+        size={0.05}
         vertexColors
         transparent
-        opacity={0.7}
+        opacity={0.6}
         sizeAttenuation
         blending={THREE.AdditiveBlending}
         depthWrite={false}

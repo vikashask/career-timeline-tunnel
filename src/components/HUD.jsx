@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import useTimelineStore from '../store/useTimelineStore';
 import { timelineData, TUNNEL_LENGTH, PROFILE } from '../data/timelineData';
+import profileImg from '../assets/profile img mini.jpeg';
 
 export default function HUD() {
   const cameraZ = useTimelineStore((s) => s.cameraZ);
@@ -35,27 +36,41 @@ export default function HUD() {
           className="h-full transition-all duration-500"
           style={{
             width: `${progress}%`,
-            background: 'linear-gradient(90deg, #00d4aa, #7c3aed, #ef4444, #10b981)',
+            background: 'linear-gradient(90deg, #7c3aed, #0ea5e9, #c026d3, #10b981)',
           }}
         />
       </div>
 
-      {/* Top left — name + title */}
-      <div className="absolute top-5 left-6">
-        <h1
-          className="text-base font-bold tracking-widest text-white/90"
-          style={{ fontFamily: 'Orbitron, sans-serif' }}
-        >
-          {PROFILE.name.toUpperCase()}
-        </h1>
-        <p className="text-xs text-white/40 tracking-wider mt-0.5">{PROFILE.title} · {PROFILE.experience}</p>
+      {/* Top left — profile image + name + title */}
+      <div className="absolute top-5 left-6 flex items-center gap-3">
+        {/* Profile image with cosmic glow */}
+        <div className="profile-avatar-ring">
+          <img
+            src={profileImg}
+            alt={PROFILE.name}
+            className="w-11 h-11 rounded-full object-cover"
+            style={{
+              border: '2px solid rgba(124, 58, 237, 0.6)',
+            }}
+          />
+        </div>
+
+        <div>
+          <h1
+            className="text-base font-bold tracking-widest text-white/90"
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          >
+            {PROFILE.name.toUpperCase()}
+          </h1>
+          <p className="text-xs text-white/40 tracking-wider mt-0.5">{PROFILE.title} · {PROFILE.experience}</p>
+        </div>
       </div>
 
       {/* Top right — progress */}
       <div className="absolute top-5 right-6 text-right">
         <div
           className="text-xs font-semibold tracking-widest"
-          style={{ fontFamily: 'Orbitron, sans-serif', color: nearestEntry?.color || '#0affff' }}
+          style={{ fontFamily: 'Orbitron, sans-serif', color: nearestEntry?.color || '#7c3aed' }}
         >
           {nearestEntry ? String(nearestEntry.year) : '—'}
         </div>
@@ -110,17 +125,52 @@ export default function HUD() {
 
       {/* Hovered portal tooltip */}
       {hoveredPortal && (
-        <div className="absolute bottom-28 left-1/2 -translate-x-1/2 text-center pointer-events-none animate-fadeIn">
+        <div className="absolute bottom-28 left-1/2 -translate-x-1/2 pointer-events-none animate-fadeIn flex flex-col items-center">
           <div
-            className="px-5 py-2 rounded-full text-xs tracking-wider border"
+            className="px-6 py-4 rounded-2xl border mb-3 flex flex-col gap-2 min-w-[300px]"
             style={{
-              background: 'rgba(10,15,30,0.8)',
-              borderColor: 'rgba(255,255,255,0.1)',
-              color: 'rgba(255,255,255,0.7)',
-              backdropFilter: 'blur(10px)',
+              background: 'rgba(5,10,20,0.92)',
+              borderColor: `${hoveredPortal.color}50`,
+              boxShadow: `0 8px 32px rgba(0,0,0,0.8), 0 0 20px ${hoveredPortal.color}20`,
+              backdropFilter: 'blur(12px)',
             }}
           >
-            Click to explore {hoveredPortal} →
+            <div className="flex items-center justify-between border-b pb-2 mb-1" style={{ borderColor: 'rgba(255,255,255,0.05)' }}>
+              <span className="text-sm font-bold tracking-widest uppercase" style={{ color: hoveredPortal.color }}>
+                {hoveredPortal.company}
+              </span>
+              <span className="text-xs text-white/40 tracking-wider bg-white/5 px-2 py-0.5 rounded-full">
+                {hoveredPortal.year}
+              </span>
+            </div>
+            
+            <div className="text-white/90 font-medium text-[15px] leading-tight mb-1">
+              {hoveredPortal.role}
+            </div>
+            
+            <div className="flex flex-wrap gap-1.5 mt-1">
+              {hoveredPortal.tech?.slice(0, 4).map((tech, i) => (
+                <span key={i} className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/60 border border-white/10 tracking-wider">
+                  {tech}
+                </span>
+              ))}
+              {hoveredPortal.tech?.length > 4 && (
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/40 border border-white/5 tracking-wider">
+                  +{hoveredPortal.tech.length - 4}
+                </span>
+              )}
+            </div>
+          </div>
+          
+          <div
+            className="px-5 py-1.5 rounded-full text-[11px] tracking-[0.2em] uppercase border"
+            style={{
+              background: `linear-gradient(90deg, transparent, ${hoveredPortal.color}15, transparent)`,
+              borderColor: `${hoveredPortal.color}30`,
+              color: 'rgba(255,255,255,0.8)',
+            }}
+          >
+            Click to explore →
           </div>
         </div>
       )}
@@ -128,7 +178,7 @@ export default function HUD() {
       {/* Bottom — scroll hint */}
       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 text-center">
         <div className="text-white/20 text-xs tracking-[0.3em] uppercase animate-pulse">
-          Scroll to travel through time
+          Scroll to travel through the universe
         </div>
         <div className="mt-2 flex justify-center">
           <div className="w-5 h-8 rounded-full border border-white/15 flex justify-center pt-1.5">

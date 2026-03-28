@@ -22,7 +22,7 @@ const useTimelineStore = create((set) => ({
       isDetailView: false,
     }),
 
-  setHoveredPortal: (year) => set({ hoveredPortal: year }),
+  setHoveredPortal: (portalData) => set({ hoveredPortal: portalData }),
 }));
 
 export default useTimelineStore;

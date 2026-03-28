@@ -12,7 +12,7 @@ html, body, #root {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #020408;
+  background: #000206;
   color: #ffffff;
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,7 +25,7 @@ body { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* ───── Selection ───── */
 ::selection {
-  background: rgba(10, 255, 255, 0.3);
+  background: rgba(124, 58, 237, 0.3);
   color: #ffffff;
 }
 
@@ -41,13 +41,33 @@ body { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
 @keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(10, 255, 255, 0.1); }
-  50% { box-shadow: 0 0 40px rgba(10, 255, 255, 0.25); }
+  0%, 100% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(124, 58, 237, 0.25); }
 }
 
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+@keyframes profileGlow {
+  0%, 100% {
+    box-shadow:
+      0 0 8px rgba(124, 58, 237, 0.4),
+      0 0 20px rgba(124, 58, 237, 0.15),
+      0 0 40px rgba(14, 165, 233, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(192, 38, 211, 0.5),
+      0 0 30px rgba(192, 38, 211, 0.2),
+      0 0 50px rgba(14, 165, 233, 0.15);
+  }
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .animate-fadeIn {
@@ -60,4 +80,36 @@ body { -ms-overflow-style: none; scrollbar-width: none; }
 
 .animate-glow {
   animation: glow 2s ease-in-out infinite;
+}
+
+/* ───── Profile Avatar ───── */
+.profile-avatar-ring {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 3px;
+  animation: profileGlow 3s ease-in-out infinite;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(14, 165, 233, 0.3));
+}
+
+.profile-avatar-ring::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    #7c3aed,
+    #0ea5e9,
+    #c026d3,
+    #6b21a8,
+    #0891b2,
+    #7c3aed
+  );
+  opacity: 0.5;
+  animation: ringRotate 6s linear infinite;
+  z-index: -1;
+  filter: blur(2px);
 }

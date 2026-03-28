@@ -28,10 +28,10 @@ export default function Portal({ data }) {
     (e) => {
       e.stopPropagation();
       setHovered(true);
-      setHoveredPortal(data.year);
+      setHoveredPortal(data);
       document.body.style.cursor = 'pointer';
     },
-    [data.year, setHoveredPortal]
+    [data, setHoveredPortal]
   );
 
   const handlePointerOut = useCallback(() => {
